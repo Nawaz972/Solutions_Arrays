@@ -9,14 +9,22 @@ class Solution
     string modify (string s)
     {
         //code here.
-        string str;
-        for(int i = 0; i < s.length(); i++)
+        string str = s;
+        int j = 0;
+        int i = 0;
+        while(i < s.length())
         {
             if(s[i] != ' ')
             {
-                cout << s[i];
+                str[j] = s[i];
+                j++;
             }
+            i++;
         }
+         for(int i = j; i < s.length(); i++)
+         {
+             str[i] = ' ';
+         }
         return str;
     }
 };
