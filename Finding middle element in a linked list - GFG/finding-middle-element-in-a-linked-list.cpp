@@ -42,24 +42,14 @@ class Solution{
     int getMiddle(Node *head)
     {
         // Your code here
-        int cnt = 0;
-        Node* temp = head;
-        while(temp != NULL)
+        Node* slow = head;
+        Node* fast = head;
+        while(fast != NULL && fast -> next != NULL)
         {
-            temp  = temp -> next;
-            cnt++;
+            slow = slow -> next;
+            fast = fast -> next -> next;
         }
-        int mid =  (cnt / 2) + 1;
-        
-        cnt = 0;
-        temp = head;
-        while(cnt < mid - 1)
-        {
-            temp = temp -> next;
-            cnt++;
-        }
-        mid = temp -> data;
-        return mid;
+        return slow -> data;
     }
 };
 
