@@ -1,14 +1,15 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        string str = to_string(x);
-        int i = 0, j = str.length() - 1;
-        while(i < j)
+        if(x < 0)   return false;
+        int n = x;
+        long int num = 0;
+        while(n > 0)
         {
-            if(str[i] != str[j])    return false;
-            i++;
-            j--;
+            num = num * 10 + n % 10;
+            n /= 10;
         }
-        return true;
+        if(x == num)    return true;
+        else    return false;
     }
 };
