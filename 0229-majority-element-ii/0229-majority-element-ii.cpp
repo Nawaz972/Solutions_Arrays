@@ -41,7 +41,7 @@ public:
         ans.push_back(ele1);
         if(cnt2 >= temp)
         ans.push_back(ele2);
-        sort(ans.begin(), ans.end());
+        //sort(ans.begin(), ans.end());
         return ans;
     }
 };
