@@ -11,53 +11,47 @@ class twoStacks
 {
     int *arr;
     int size;
-    int t1, t2;
+    int top1, top2;
     public:
     
     twoStacks(int n=100)
     {
         size = n; 
         arr = new int[n]; 
-        t1 = -1; 
-        t2 = size;
+        top1 = n / 2; 
+        top2 = n / 2 + 1;
     }
  
     //Function to push an integer into the stack1.
-   void push1(int x)
+    void push1(int x)
     {
-      //check if space exists
-      if(t2-t1 >1)
-          arr[++t1]=x;
+        arr[--top1] = x;
     }
+    
     //Function to push an integer into the stack2.
     void push2(int x)
     {
-       if(t2-t1 >1)
-          arr[--t2]=x;
+       arr[++top2] = x;
     }
+    
     //Function to remove an element from top of the stack1.
     int pop1()
     {
-        if(t1>=0)
-        {
-            int x = arr[t1--];
-            return x;
-        }
-        return -1;
+        if(top1 >= size / 2)    return -1;
+        int x = arr[top1];
+        ++top1;
+        return x;
     }
+    
     //Function to remove an element from top of the stack2.
     int pop2()
     {
-        if(t2<size)
-        {
-            int x = arr[t2++];
-            return x;
-        }
-        return -1;
+        if(top2 <= size / 2 + 1)    return -1;
+        int x = arr[top2];
+       --top2;
+       return x;
     }
 };
-
-
 
 
 
