@@ -4,8 +4,8 @@ public:
         int ans = 0;
         for(int i = 0; i < nums.size(); i++)
         {
-            ans = ans ^ i;
             ans = ans ^ nums[i];
+            ans = ans ^ i;
         }
         ans = ans ^ nums.size();
         return ans;
